@@ -1,11 +1,18 @@
 <script>
 import axios from 'axios'
 
-export default {
+import store from '../store'
 
+import Card from './Card.vue'
+
+export default {
+    components: {
+        Card
+    },
     data() {
         return {
-            filmArray: []
+            // filmArray: []
+            store
         }
     },
     methods: {
@@ -14,8 +21,8 @@ export default {
                 .get('https://api.themoviedb.org/3/search/movie?api_key=9feb0690aacb6d5cd46a246f69bb9918&query=ironman')
                 .then((response) => {
                     console.log(response)
-                    this.filmArray = response.data.results
-                    console.log(this.filmArray)
+                    this.store.filmArray = response.data.results
+                    // console.log(this.filmArray)
                 })
         }
     },
@@ -32,19 +39,14 @@ export default {
     <main class="main-content">
         <div class="container">
             <ul class="list-card">
-                <li class="card"
-                v-for="cardFilm in filmArray"
-                > 
-                    <h2 class="title-film">
-                        {{ cardFilm.title }}
-                    </h2>
-                    <h3 class="title-original-film">
-                        {{ cardFilm.original_title }}
-                    </h3>
-                    <div class="description-film">
-                        {{ cardFilm.overview }}
-                    </div>
-                </li>
+                <Card
+                v-for="cardFilm in store.filmArray"
+                :title="cardFilm.title"
+                :titleOriginal="cardFilm.original_title"
+                :description="cardFilm.overview"
+                :language="cardFilm.original_language"
+                :vote="cardFilm.vote_average"
+                ></Card>
             </ul>
         </div>
     </main>
@@ -61,6 +63,10 @@ export default {
         display: grid;
         grid-template-columns: repeat(2,1fr);
         gap: 15px;
+
+        .description-film {
+            font-size: 13px;
+        }
     }
 }
 
