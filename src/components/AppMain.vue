@@ -68,8 +68,6 @@ export default {
     watch: {
         valueInput(newVal, oldVal) {
             this.fechFilm()
-        },
-        valueInput(newVal, oldVal) {
             this.fechtv()
         }
     }
@@ -84,20 +82,20 @@ export default {
         <div class="container">
             <ul class="list-card">
                 <Card
-                v-for="card in filmArray"
-                :title="card.title"
-                :titleOriginal="card.original_title"
-                :language="card.original_language"
-                :vote="card.vote_average"
+                v-for="cardFilm in filmArray"
+                :title="cardFilm.title"
+                :titleOriginal="cardFilm.original_title"
+                :language="cardFilm.original_language"
+                :vote="cardFilm.vote_average"
                 ></Card>
             </ul>
             <ul class="list-card">
                 <Card
-                v-for="card in tvArray"
-                :title="card.name"
-                :titleOriginal="card.original_name"
-                :language="card.original_language"
-                :vote="card.vote_average"
+                v-for="cardTv in tvArray"
+                :title="cardTv.name"
+                :titleOriginal="cardTv.original_name"
+                :language="cardTv.original_language"
+                :vote="cardTv.vote_average"
                 ></Card>
             </ul>
         </div>

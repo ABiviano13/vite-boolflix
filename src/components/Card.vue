@@ -65,4 +65,8 @@ export default {
     }
 }
 
+.display-none{
+    display: none;
+}
+
 </style>
