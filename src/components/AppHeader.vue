@@ -4,7 +4,13 @@ import store from '../store';
 export default {
   data() {
     return{
-        store
+        store,
+        localSearch: ''
+    }
+  },
+  methods: {
+    setSearch() {
+        this.store.valueInput = this.localSearch
     }
   }
 }
@@ -16,9 +22,10 @@ export default {
     <header class="main-header">
         <div class="container">
             <input type="text" class="input-search"
-            v-model= "store.valueInput"
+            v-model= "localSearch"
+            @keyup.enter="setSearch"
             >
-            <button class="button">
+            <button class="button" @click="setSearch">
                 Ricerca
             </button>
         </div>

@@ -29,6 +29,9 @@ export default {
                     this.store.filmArray = response.data.results
                     // console.log(this.filmArray)
                 })
+                .catch(err => {
+                    this.store.filmArray = []
+                })
         }
     },
     created() {
@@ -76,10 +79,11 @@ export default {
 .main-content{
     background-color: gray;
     height: 100vh;
+    overflow: scroll;
 
     .list-card{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(4,1fr);
         gap: 15px;
 
         .description-film {
