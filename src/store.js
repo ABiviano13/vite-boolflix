@@ -1,7 +1,8 @@
 import { reactive } from 'vue'
 
 const store = reactive({
-    filmArray: []
+    filmArray: [],
+    valueInput: ''
 })
 
 export default store

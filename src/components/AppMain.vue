@@ -18,9 +18,14 @@ export default {
     methods: {
         fechFilm() {
             axios
-                .get('https://api.themoviedb.org/3/search/movie?api_key=9feb0690aacb6d5cd46a246f69bb9918&query=ironman')
+                .get('https://api.themoviedb.org/3/search/movie', {
+                    params: {
+                        api_key:'9feb0690aacb6d5cd46a246f69bb9918',
+                        query: this.valueInput
+                    }
+                })
                 .then((response) => {
-                    console.log(response)
+                    // console.log(response)
                     this.store.filmArray = response.data.results
                     // console.log(this.filmArray)
                 })
@@ -28,6 +33,19 @@ export default {
     },
     created() {
         this.fechFilm()
+    },
+    computed: {
+        filmArray() {
+            return store.filmArray
+        },
+        valueInput() {
+            return store.valueInput
+        }
+    },
+    watch: {
+        filmArray(newVal, oldVal) {
+            this.fechFilm()
+        }
     }
 
   
@@ -40,7 +58,7 @@ export default {
         <div class="container">
             <ul class="list-card">
                 <Card
-                v-for="cardFilm in store.filmArray"
+                v-for="cardFilm in filmArray"
                 :title="cardFilm.title"
                 :titleOriginal="cardFilm.original_title"
                 :description="cardFilm.overview"

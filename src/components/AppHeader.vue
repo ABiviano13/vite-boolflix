@@ -1,7 +1,12 @@
 <script>
+import store from '../store';
 
 export default {
-  
+  data() {
+    return{
+        store
+    }
+  }
 }
 
 </script>
@@ -10,7 +15,9 @@ export default {
 
     <header class="main-header">
         <div class="container">
-            <input type="text" class="input-search">
+            <input type="text" class="input-search"
+            v-model= "store.valueInput"
+            >
             <button class="button">
                 Ricerca
             </button>
