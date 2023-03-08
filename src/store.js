@@ -2,6 +2,7 @@ import { reactive } from 'vue'
 
 const store = reactive({
     filmArray: [],
+    tvArray: [],
     valueInput: ''
 })
 
