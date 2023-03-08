@@ -56,6 +56,7 @@ export default {
                 width="20"
                 :alt="language">
         {{ vote }}
+        
         </div>
     </div>
 </li>
