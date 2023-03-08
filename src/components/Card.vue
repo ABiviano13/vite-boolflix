@@ -9,10 +9,6 @@ export default {
             type: String,
             required: true
         },
-        description: {
-            type: String,
-            required: true
-        },
         language: {
             type: String,
             required: true
@@ -23,9 +19,11 @@ export default {
         }
     },
     methods: {
-        fechLanguageIcon() {
+        fechLanguageIcon(language) {
             const languageIcon = 'https://flagcdn.com/w20/' + language + '.png'
+            console.log(languageIcon)
             return languageIcon
+
         }
     }
     
@@ -43,13 +41,11 @@ export default {
         {{ titleOriginal }}
     </h3>
     <div class="description-film">
-        {{ description }}
         <div class="language-vote">
             <img
-                :src= "fechLanguageIcon"
-                :srcset="fechLanguageIcon"
+                :src= "fechLanguageIcon(language)"
                 width="20"
-                alt="Sudafrica">
+                :alt="language">
         {{ vote }}
         </div>
     </div>

@@ -66,10 +66,10 @@ export default {
         }
     },
     watch: {
-        filmArray(newVal, oldVal) {
+        valueInput(newVal, oldVal) {
             this.fechFilm()
         },
-        tvArray(newVal, oldVal) {
+        valueInput(newVal, oldVal) {
             this.fechtv()
         }
     }
@@ -87,7 +87,6 @@ export default {
                 v-for="card in filmArray"
                 :title="card.title"
                 :titleOriginal="card.original_title"
-                :description="card.overview"
                 :language="card.original_language"
                 :vote="card.vote_average"
                 ></Card>
@@ -97,7 +96,6 @@ export default {
                 v-for="card in tvArray"
                 :title="card.name"
                 :titleOriginal="card.original_name"
-                :description="card.overview"
                 :language="card.original_language"
                 :vote="card.vote_average"
                 ></Card>
