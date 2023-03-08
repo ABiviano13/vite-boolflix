@@ -16,14 +16,22 @@ export default {
         vote: {
             type: String,
             required: true
+        },
+        urlFinal: {
+            type: String,
+            required: true
         }
     },
     methods: {
         fechLanguageIcon(language) {
             const languageIcon = 'https://flagcdn.com/w20/' + language + '.png'
-            console.log(languageIcon)
+            // console.log(languageIcon)
             return languageIcon
 
+        },
+        fechCover(urlFinal) {
+            const URL = 'https://image.tmdb.org/t/p/' + 'w342' + urlFinal
+            return URL
         }
     }
     
@@ -34,6 +42,7 @@ export default {
 <template>
 
 <li class="card"> 
+    <img :src="fechCover(urlFinal)" alt="">
     <h2 class="title-film">
         {{ title }}
     </h2>
@@ -63,10 +72,6 @@ export default {
         padding-top: 5px;
         font-weight: bold;
     }
-}
-
-.display-none{
-    display: none;
 }
 
 </style>

@@ -24,7 +24,7 @@ export default {
                     }
                 })
                 .then((response) => {
-                    // console.log(response)
+                    console.log('film',response)
                     this.store.filmArray = response.data.results
                     // console.log(this.filmArray)
                 })
@@ -41,7 +41,7 @@ export default {
                     }
                 })
                 .then((response) => {
-                    // console.log(response)
+                    console.log('serie tv', response)
                     this.store.tvArray = response.data.results
                     // console.log(this.tvArray)
                 })
@@ -87,6 +87,7 @@ export default {
                 :titleOriginal="cardFilm.original_title"
                 :language="cardFilm.original_language"
                 :vote="cardFilm.vote_average"
+                :urlFinal="cardFilm.poster_path"
                 ></Card>
             </ul>
             <ul class="list-card">
@@ -96,6 +97,7 @@ export default {
                 :titleOriginal="cardTv.original_name"
                 :language="cardTv.original_language"
                 :vote="cardTv.vote_average"
+                :urlFinal="cardTv.poster_path"
                 ></Card>
             </ul>
         </div>
