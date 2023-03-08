@@ -43,7 +43,7 @@ export default {
                 .then((response) => {
                     // console.log(response)
                     this.store.tvArray = response.data.results
-                    console.log(this.tvArray)
+                    // console.log(this.tvArray)
                 })
                 .catch(err => {
                     this.store.tvArray = []
