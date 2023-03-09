@@ -20,7 +20,7 @@ export default {
             required: true
         },
         vote: {
-            type: String,
+            type: Number,
             required: true
         },
         urlFinal: {
@@ -29,15 +29,27 @@ export default {
         }
     },
     methods: {
-        fechLanguageIcon(language) {
-            const languageIcon = 'https://flagcdn.com/w20/' + language + '.png'
+        fechLanguageIcon() {
+            const languageIcon = 'https://flagcdn.com/w20/' + this.language + '.png'
             // console.log(languageIcon)
             return languageIcon
 
         },
-        fechCover(urlFinal) {
-            const URL = 'https://image.tmdb.org/t/p/' + 'w342' + urlFinal
+        fechCover() {
+            const URL = 'https://image.tmdb.org/t/p/' + 'w342' + this.urlFinal
             return URL
+        },
+        fechVote() {
+            // const voteInt = Math.round(this.vote)
+            const voteInt = this.getVote(this.vote)
+            console.log(vote)
+            return voteInt
+        },
+        getVote(vot) {
+            const min = Math.ceil(1);
+            const max = Math.floor(5);
+            const vot = Math.floor((1 - 5) + 5); 
+            return vot
         }
     }
     
@@ -48,7 +60,7 @@ export default {
 <template>
 
 <li class="card"> 
-    <img :src="fechCover(urlFinal)" alt="">
+    <img :src="fechCover()" alt="">
     <h2 class="title-film">
         {{ title }}
     </h2>
@@ -58,10 +70,11 @@ export default {
     <div class="description-film">
         <div class="language-vote">
             <img
-                :src= "fechLanguageIcon(language)"
+                :src= "fechLanguageIcon()"
                 width="20"
-                :alt="language">
-           {{ vote }}
+                :alt="language"
+            >
+           {{fechVote()}}
            <StarIcon class="star"></StarIcon>
            <StarIconOutline class="star"></StarIconOutline>
         
