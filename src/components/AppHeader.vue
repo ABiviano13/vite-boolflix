@@ -1,18 +1,23 @@
 <script>
 import store from '../store';
 
+import { magnifyingGlassIcon } from '@heroicons/vue/24/outline';
+
 export default {
-  data() {
-    return{
-        store,
-        localSearch: ''
+    components: {
+        magnifyingGlassIcon
+    },
+    data() {
+        return{
+            store,
+            ocalSearch: ''
+        }
+    },
+    methods: {
+        setSearch() {
+            this.store.valueInput = this.localSearch
+        }
     }
-  },
-  methods: {
-    setSearch() {
-        this.store.valueInput = this.localSearch
-    }
-  }
 }
 
 </script>
@@ -21,22 +26,52 @@ export default {
 
     <header class="main-header">
         <div class="container">
-            <input type="text" class="input-search"
-            v-model= "localSearch"
-            @keyup.enter="setSearch"
-            >
-            <button class="button" @click="setSearch">
-                Ricerca
-            </button>
+            <img class="logo" src="../assets/netflix-new-logo.png" alt="logo netflix">
+            <div class="input-search">
+                <input type="text" class="search"
+                    v-model= "localSearch"
+                    @keyup.enter="setSearch"
+                >
+                <button class="button" @click="setSearch">
+                    Search
+                </button>
+            </div>
         </div>
     </header>
   
 </template>
 
-<style scoped>
+<style lang='scss' scoped>
+@use '../style/partials/variables' as *;
 .main-header{
-    background-color: black;
+    background-color: $black;
     padding: 20px;
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        .search,
+        .button{
+            background-color: $black;
+            color: $white;
+            border: none;
+            padding: 5px;
+        }
+
+        .search{
+            border: 1px solid $white;
+        }
+
+        .logo{
+            width: 10%;
+        }
+    }
+
 }
+
+
 
 </style>

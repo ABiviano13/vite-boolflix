@@ -80,7 +80,7 @@ export default {
 
     <main class="main-content">
         <div class="container">
-            <h2>Film:</h2>
+            
             <ul class="list-card">
                 <Card
                 v-for="cardFilm in filmArray"
@@ -92,7 +92,7 @@ export default {
                 :overview="cardFilm.overview"
                 ></Card>
             </ul>
-            <h2>Serie Tv:</h2>
+
             <ul class="list-card">
                 <Card
                 v-for="cardTv in tvArray"
@@ -104,23 +104,24 @@ export default {
                 :overview="cardTv.overview"
                 ></Card>
             </ul>
+
         </div>
     </main>
   
 </template>
 
 <style lang="scss">
+@use '../style/partials/variables' as *;
 
 .main-content{
-    background-color: gray;
+    background-color: $gray;
     height: 100vh;
     overflow: scroll;
 
     .list-card{
         display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        overflow: scroll;
+        overflow-x: scroll;
+        overflow-y: hidden;
     }
 }
 

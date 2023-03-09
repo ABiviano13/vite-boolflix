@@ -119,35 +119,37 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+@use '../style/partials/variables' as *;
 .card{
     position: relative;
 
     &:hover {
         
         .description{
-            display: block;
+            display: flex;
         }
     }
 
     .cover{
         height: 100%;
-        
     }
 
     
     .description {
-        background-color: rgba(0, 0, 0, 0.725);
+        background-color: $blackhover;
         width: 100%;
+        height: 100%;
         font-size: 13px;
-        color: white;
+        color: $white;
         padding-top: 10px;
         display: none;
-        overflow: scroll;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
 
 
         .flex{
