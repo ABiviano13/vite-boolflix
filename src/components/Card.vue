@@ -40,16 +40,10 @@ export default {
             return URL
         },
         fechVote() {
-            // const voteInt = Math.round(this.vote)
-            const voteInt = this.getVote(this.vote)
-            console.log(vote)
+            const div = this.vote % 2 
+            const voteInt = Math.round(div)
+            // console.log(voteInt)
             return voteInt
-        },
-        getVote(vot) {
-            const min = Math.ceil(1);
-            const max = Math.floor(5);
-            const vot = Math.floor((1 - 5) + 5); 
-            return vot
         }
     }
     
@@ -74,7 +68,7 @@ export default {
                 width="20"
                 :alt="language"
             >
-           {{fechVote()}}
+           {{ fechVote() }}
            <StarIcon class="star"></StarIcon>
            <StarIconOutline class="star"></StarIconOutline>
         
