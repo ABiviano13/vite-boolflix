@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.16",
     "flag-icon-css": "^4.1.7",
     "vue": "^3.2.45"
   },

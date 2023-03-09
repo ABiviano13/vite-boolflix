@@ -1,5 +1,11 @@
 <script>
+import { StarIcon } from '@heroicons/vue/24/solid'
+import { StarIcon as StarIconOutline } from '@heroicons/vue/24/outline'
 export default {
+    components: {
+        StarIcon,
+        StarIconOutline
+    },
     props: {
         title: {
             type: String,
@@ -55,7 +61,9 @@ export default {
                 :src= "fechLanguageIcon(language)"
                 width="20"
                 :alt="language">
-        {{ vote }}
+           {{ vote }}
+           <StarIcon class="star"></StarIcon>
+           <StarIconOutline class="star"></StarIconOutline>
         
         </div>
     </div>
@@ -72,6 +80,10 @@ export default {
     .language-vote{
         padding-top: 5px;
         font-weight: bold;
+
+        .star{
+            width: 10px;
+        }
     }
 }
 
