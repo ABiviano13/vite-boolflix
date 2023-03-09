@@ -15,6 +15,7 @@ export default {
             type: String,
             required: true
         },
+        
         language: {
             type: String,
             required: true
@@ -24,6 +25,10 @@ export default {
             required: true
         },
         urlFinal: {
+            type: String,
+            required: true
+        },
+        overview: {
             type: String,
             required: true
         }
@@ -54,30 +59,59 @@ export default {
 <template>
 
 <li class="card"> 
-    <img :src="fechCover()" alt="">
-    <h2 class="title-film">
-        {{ title }}
-    </h2>
-    <h3 class="title-original-film">
-        {{ titleOriginal }}
-    </h3>
-    <div class="description-film">
-        <div class="language-vote">
+    <img 
+        class="cover"
+        :src="fechCover()" alt=""
+    >
+    <div class="description">
+
+        <div class="title">
+            <h4>
+                Titolo:
+            </h4>
+            <div>
+                {{ title }}
+            </div>
+        </div>
+
+        <div class="title-original">
+            <h4>
+                Titolo Originale:
+            </h4>
+            <div>
+                {{ titleOriginal }}
+            </div>
+        </div>
+
+        <div class="language flex">
+
+            <h4>
+                lingua:
+            </h4>
             <img
                 :src= "fechLanguageIcon()"
                 width="20"
                 :alt="language"
             >
-           {{ fechVote() }}
-           <StarIcon 
-           class="star"
-           v-for="star in fechVote() "
-           v-if="fechVote() !== 0"
-           ></StarIcon>
-           <StarIconOutline 
-           class="star"
-           v-for="star in (5 - fechVote())"></StarIconOutline>
-        
+        </div>
+        <div class="vote-star flex">
+
+            <h4>
+                Voto:
+            </h4>
+            <StarIcon 
+                class="star"
+                v-for="star in fechVote() "
+                v-if="fechVote() !== 0"
+            ></StarIcon>
+            <StarIconOutline 
+                class="star"
+                v-for="star in (5 - fechVote())"
+            ></StarIconOutline>
+
+        </div>
+        <div class="overview">
+            {{ overview }}
         </div>
     </div>
 </li>
@@ -86,22 +120,46 @@ export default {
 
 <style lang="scss" scoped>
 
-.description-film {
-    font-size: 13px;
-    padding-top: 10px;
+.card{
+    position: relative;
 
-    .language-vote{
-        padding-top: 5px;
-        font-weight: bold;
+    &:hover {
+        
+        .description{
+            display: block;
+        }
+    }
+
+    .cover{
+        height: 100%;
+        
+    }
+
+    
+    .description {
+        background-color: rgba(0, 0, 0, 0.725);
+        width: 100%;
+        font-size: 13px;
+        color: white;
+        padding-top: 10px;
+        display: none;
+        overflow: scroll;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+
+        .flex{
+            display: flex;
+            gap: 5px;
+        }
 
         .star{
             width: 10px;
         }
-
-        .display-none{
-            display: none;
-        }
     }
 }
+
 
 </style>

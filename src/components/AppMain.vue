@@ -80,6 +80,7 @@ export default {
 
     <main class="main-content">
         <div class="container">
+            <h2>Film:</h2>
             <ul class="list-card">
                 <Card
                 v-for="cardFilm in filmArray"
@@ -88,8 +89,10 @@ export default {
                 :language="cardFilm.original_language"
                 :vote="cardFilm.vote_average"
                 :urlFinal="cardFilm.poster_path"
+                :overview="cardFilm.overview"
                 ></Card>
             </ul>
+            <h2>Serie Tv:</h2>
             <ul class="list-card">
                 <Card
                 v-for="cardTv in tvArray"
@@ -98,6 +101,7 @@ export default {
                 :language="cardTv.original_language"
                 :vote="cardTv.vote_average"
                 :urlFinal="cardTv.poster_path"
+                :overview="cardTv.overview"
                 ></Card>
             </ul>
         </div>
@@ -114,13 +118,9 @@ export default {
 
     .list-card{
         display: flex;
-        align-items: flex-start;
+        flex-wrap: wrap;
         gap: 15px;
         overflow: scroll;
-
-        .description-film {
-            font-size: 13px;
-        }
     }
 }
 
