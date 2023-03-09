@@ -69,8 +69,14 @@ export default {
                 :alt="language"
             >
            {{ fechVote() }}
-           <StarIcon class="star"></StarIcon>
-           <StarIconOutline class="star"></StarIconOutline>
+           <StarIcon 
+           class="star"
+           v-for="star in fechVote() "
+           v-if="fechVote() !== 0"
+           ></StarIcon>
+           <StarIconOutline 
+           class="star"
+           v-for="star in (5 - fechVote())"></StarIconOutline>
         
         </div>
     </div>
@@ -90,6 +96,10 @@ export default {
 
         .star{
             width: 10px;
+        }
+
+        .display-none{
+            display: none;
         }
     }
 }
