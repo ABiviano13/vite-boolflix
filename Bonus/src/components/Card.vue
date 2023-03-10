@@ -33,25 +33,13 @@ export default {
             required: true
         }
     },
-    data() {
-        return {
-            flags: {
-                it: 'it.png',
-                en: 'en.png',
-                hi:'india.png',
-                ja:'japan.png',
-                ko: 'korea.png',
-                fr: 'france.png'
-            }
-        }
-    },
     methods: {
-        // setLanguageIcon() {
-        //     const languageIcon = 'https://flagcdn.com/w20/' + this.language + '.png'
-        //     // console.log(languageIcon)
-        //     return languageIcon
+        setLanguageIcon() {
+            const languageIcon = 'https://flagcdn.com/w20/' + this.language + '.png'
+            // console.log(languageIcon)
+            return languageIcon
 
-        // },
+        },
         setCover() {
             const URL = 'https://image.tmdb.org/t/p/' + 'w342' + this.urlFinal
             return URL
@@ -86,8 +74,7 @@ export default {
             </div>
         </div>
 
-        <div class="title-original flex" 
-        v-if= " titleOriginal !== title ">
+        <div class="title-original flex">
             <h4>
                 Titolo Originale:
             </h4>
@@ -102,14 +89,10 @@ export default {
                 Lingua:
             </h4>
             <img
-                v-if="flags[language]"
-                :src= "flags[language]"
-                width="25"
+                :src= "setLanguageIcon()"
+                width="20"
                 :alt="language"
             >
-            <p v-else>
-                {{ language }}
-            </p>
         </div>
         <div class="vote-star flex">
 
@@ -183,10 +166,6 @@ export default {
 
         .overview{
             font-size: 10px;
-        }
-
-        .display-none{
-            display: none;
         }
     }
 }
