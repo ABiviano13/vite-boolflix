@@ -20,11 +20,11 @@ export default {
                 .get('https://api.themoviedb.org/3/search/movie', {
                     params: {
                         api_key:'9feb0690aacb6d5cd46a246f69bb9918',
-                        query: this.valueInput
+                        query: this.valueInput,
                     }
                 })
                 .then((response) => {
-                    console.log('film',response)
+                    // console.log('film',response)
                     this.store.filmArray = response.data.results
                     // console.log(this.filmArray)
                 })
@@ -41,7 +41,7 @@ export default {
                     }
                 })
                 .then((response) => {
-                    console.log('serie tv', response)
+                    // console.log('serie tv', response)
                     this.store.tvArray = response.data.results
                     // console.log(this.tvArray)
                 })
@@ -114,7 +114,7 @@ export default {
 @use '../style/partials/variables' as *;
 
 .main-content{
-    background-color: $gray;
+    background-color: $black;
     height: 100vh;
     overflow: scroll;
 

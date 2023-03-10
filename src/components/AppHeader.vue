@@ -1,16 +1,13 @@
 <script>
 import store from '../store';
 
-import { magnifyingGlassIcon } from '@heroicons/vue/24/outline';
-
 export default {
     components: {
-        magnifyingGlassIcon
     },
     data() {
         return{
             store,
-            ocalSearch: ''
+            localSearch: ''
         }
     },
     methods: {

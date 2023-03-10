@@ -65,7 +65,7 @@ export default {
     >
     <div class="description">
 
-        <div class="title">
+        <div class="title flex">
             <h4>
                 Titolo:
             </h4>
@@ -74,7 +74,7 @@ export default {
             </div>
         </div>
 
-        <div class="title-original">
+        <div class="title-original flex">
             <h4>
                 Titolo Originale:
             </h4>
@@ -86,7 +86,7 @@ export default {
         <div class="language flex">
 
             <h4>
-                lingua:
+                Lingua:
             </h4>
             <img
                 :src= "setLanguageIcon()"
@@ -109,7 +109,10 @@ export default {
             ></StarIconOutline>
 
         </div>
-        <div class="overview">
+        <div class="overview flex">
+            <h4>
+                Descrizione:
+            </h4>
             {{ overview }}
         </div>
     </div>
@@ -140,7 +143,7 @@ export default {
         height: 100%;
         font-size: 13px;
         color: $white;
-        padding-top: 10px;
+        padding-top: 20px;
         display: none;
         position: absolute;
         top: 50%;
@@ -149,6 +152,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         padding: 20px;
+        overflow: scroll;
 
 
         .flex{
@@ -158,6 +162,10 @@ export default {
 
         .star{
             width: 10px;
+        }
+
+        .overview{
+            font-size: 10px;
         }
     }
 }
