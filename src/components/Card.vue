@@ -34,17 +34,17 @@ export default {
         }
     },
     methods: {
-        fechLanguageIcon() {
+        setLanguageIcon() {
             const languageIcon = 'https://flagcdn.com/w20/' + this.language + '.png'
             // console.log(languageIcon)
             return languageIcon
 
         },
-        fechCover() {
+        setCover() {
             const URL = 'https://image.tmdb.org/t/p/' + 'w342' + this.urlFinal
             return URL
         },
-        fechVote() {
+        setVote() {
             const div = this.vote % 2 
             const voteInt = Math.round(div)
             // console.log(voteInt)
@@ -61,7 +61,7 @@ export default {
 <li class="card"> 
     <img 
         class="cover"
-        :src="fechCover()" alt=""
+        :src="setCover()" alt=""
     >
     <div class="description">
 
@@ -89,7 +89,7 @@ export default {
                 lingua:
             </h4>
             <img
-                :src= "fechLanguageIcon()"
+                :src= "setLanguageIcon()"
                 width="20"
                 :alt="language"
             >
@@ -101,12 +101,11 @@ export default {
             </h4>
             <StarIcon 
                 class="star"
-                v-for="star in fechVote() "
-                v-if="fechVote() !== 0"
+                v-for="star in setVote() "
             ></StarIcon>
             <StarIconOutline 
                 class="star"
-                v-for="star in (5 - fechVote())"
+                v-for="star in (5 - setVote())"
             ></StarIconOutline>
 
         </div>
